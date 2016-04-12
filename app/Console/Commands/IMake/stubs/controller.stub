@@ -1,0 +1,85 @@
+<?php namespace {{namespace}};
+
+use {{app}}\Repositories\{{model}}Repository;
+use {{app}}\Http\Requests;
+use {{app}}\Http\Controllers\Controller;
+
+use Illuminate\Http\Request;
+use {{app}}\Http\Requests\{{model}}Request;
+
+
+class {{model}}Controller extends Controller {
+    function __construct({{model}}Repository $repo)
+    {
+        $this->repo = $repo;
+    }
+
+    /**
+     * @SWG\Get(path="/{{resources}}",tags={"{{resource}}"},summary="列表",description="暂无",operationId="{{resource}}.list",
+     *   consumes={"application/json"},produces={"application/json"},
+     *   @SWG\Parameter(name="user_id",default="100000000000000000",in="query",type="integer",description="用户ID"),
+     *   @SWG\Parameter(name="offset",default="0",in="query",type="integer",description="起始位置"),
+     *   @SWG\Parameter(name="limit",default="20",in="query",type="integer",description="获取数量"),
+     *   @SWG\Parameter(name="updown",default="-1",in="query",type="integer",description="方向(1:正序,-1:逆序)"),
+     *   @SWG\Parameter(name="fields",in="query",type="string",description="指定字段(id,name)"),
+     *   @SWG\Parameter(name="sort",in="query",type="string",description="排序字段(name,-id)"),
+     *   @SWG\Response(response=200,description="OK"),
+     *   @SWG\Response(response="422", description="Unprocessable Entity"),
+     * ),
+     */
+	public function index({{model}}Request $request)
+	{
+        $offset = $request->input('offset',0);
+        $limit = $request->input('limit',20);
+        $updown = $request->input('updown',-1);
+        $fields = $request->input('fields');
+        $sort = $request->input('sort');
+        $user_id = $request->input('user_id');
+        $repodata = compact('offset','limit','updown','fields','sort','user_id');
+        $responseData = $this->repo->lists($repodata);
+        return response()->json($responseData,200,[],JSON_UNESCAPED_UNICODE);
+	}
+
+    /**
+     * @SWG\Get(path="/{{resources}}/{{resource}}_id",tags={"{{resource}}"},summary="列表",description="暂无",operationId="{{resource}}.show",
+     *   consumes={"application/json"},produces={"application/json"},
+     *   @SWG\Parameter(name="{{resource}}_id",default="100000000000000000",in="path",required=true,type="integer",description="ID"),
+     *   @SWG\Parameter(name="user_id",default="100000000000000000",in="query",type="integer",description="用户ID"),
+     *   @SWG\Parameter(name="fields",in="query",type="string",description="指定字段(id,name)"),
+     *   @SWG\Response(response=200,description="OK"),
+     *   @SWG\Response(response="422", description="Unprocessable Entity"),
+     * ),
+     */
+	public function show({{model}}Request $request,${{resource}}_id)
+	{
+        $fields = $request->input('fields');
+        $repoata = compact('{{resource}}_id','fields');
+        $responseData = $this->repo->show($repoata);
+        return response()->json($responseData,200,[],JSON_UNESCAPED_UNICODE);
+	}
+
+	public function create({{model}}Request $request)
+	{
+
+	}
+
+	public function store({{model}}Request $request)
+	{
+
+	}
+
+	public function edit({{model}}Request $request,${{resource}}_id)
+	{
+
+	}
+
+	public function update({{model}}Request $request,${{resource}}_id)
+	{
+
+	}
+
+	public function destroy({{model}}Request $request,${{resource}}_id)
+	{
+
+	}
+}

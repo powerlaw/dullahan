@@ -1,0 +1,24 @@
+<?php
+
+use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Eloquent\Model;
+use {{app}}\Models\{{model}};
+
+class {{model}}Seeder extends Seeder {
+	public function run()
+	{
+        {{model}}::truncate();
+        {{model}}::create([
+            '{{resource}}_id' => str_pad(1,18,"0",STR_PAD_RIGHT),
+        ]);
+		for ($i=0; $i < 10; $i++) {
+            $time = time();
+            {{model}}::create([
+                'filed1' => "test_{$i}_{$time}",
+                'filed2' => "test$i@gmail.com",
+            ]);
+        }
+	}
+}
+

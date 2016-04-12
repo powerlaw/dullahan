@@ -1,0 +1,1197 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "\u5947\u8d27API\u6587\u6863",
+        "description": "\u9879\u76ee\u4ee3\u53f7Tiny(\u5c0f\u5c0f)",
+        "termsOfService": "https://github.com/powrlaw",
+        "contact": {
+            "name": "xieyi",
+            "url": "http://github.com/xieyi64",
+            "email": "dev001@powerlaw.cn"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0.0"
+    },
+    "host": "xieyi.api.vqiho.com",
+    "basePath": "/v1",
+    "schemes": [
+        "http"
+    ],
+    "consumes": [
+        "application/xml",
+        "application/json"
+    ],
+    "produces": [
+        "application/xml",
+        "application/json"
+    ],
+    "paths": {
+        "/auth/id": {
+            "get": {
+                "tags": [
+                    "\u7528\u6237\u6743\u9650"
+                ],
+                "summary": "\u5f97\u5230ID",
+                "description": "\u6682\u65e0",
+                "operationId": "auth.id",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "user_id",
+                        "in": "query",
+                        "description": "\u7528\u6237ID",
+                        "type": "string",
+                        "default": "100000000000000000"
+                    },
+                    {
+                        "name": "device_id",
+                        "in": "query",
+                        "description": "\u8bbe\u5907",
+                        "type": "string",
+                        "default": "100000000000000000"
+                    },
+                    {
+                        "name": "device_info",
+                        "in": "query",
+                        "description": "\u8bbe\u5907\u4fe1\u606f",
+                        "type": "string",
+                        "default": "100000000000000000"
+                    },
+                    {
+                        "name": "client_type",
+                        "in": "query",
+                        "description": "\u5ba2\u6237\u7aef\u7c7b\u578b",
+                        "type": "string",
+                        "default": "100000000000000000"
+                    },
+                    {
+                        "name": "fields",
+                        "in": "query",
+                        "description": "\u6307\u5b9a\u5b57\u6bb5(id,name)",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                }
+            }
+        },
+        "/auth/bootstrap": {
+            "get": {
+                "tags": [
+                    "\u7528\u6237\u6743\u9650"
+                ],
+                "summary": "\u521d\u59cb\u5316",
+                "description": "\u6682\u65e0",
+                "operationId": "auth.bootstrap",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "user_id",
+                        "in": "query",
+                        "description": "\u7528\u6237ID",
+                        "type": "string",
+                        "default": "100000000000000000"
+                    },
+                    {
+                        "name": "device_id",
+                        "in": "query",
+                        "description": "\u8bbe\u5907",
+                        "type": "string",
+                        "default": "100000000000000000"
+                    },
+                    {
+                        "name": "device_info",
+                        "in": "query",
+                        "description": "\u8bbe\u5907\u4fe1\u606f",
+                        "type": "string",
+                        "default": "{\"os\":10000}"
+                    },
+                    {
+                        "name": "client_type",
+                        "in": "query",
+                        "description": "\u5ba2\u6237\u7aef\u7c7b\u578b",
+                        "type": "string",
+                        "default": "20100"
+                    },
+                    {
+                        "name": "fields",
+                        "in": "query",
+                        "description": "\u6307\u5b9a\u5b57\u6bb5(id,name)",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                }
+            }
+        },
+        "/auth/login": {
+            "get": {
+                "tags": [
+                    "\u7528\u6237\u6743\u9650"
+                ],
+                "summary": "\u767b\u5f55",
+                "description": "\u6682\u65e0",
+                "operationId": "auth.login",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "user_id",
+                        "in": "query",
+                        "description": "\u7528\u6237ID",
+                        "type": "string",
+                        "default": "100000000000000000"
+                    },
+                    {
+                        "name": "loginame",
+                        "in": "query",
+                        "description": "\u7528\u6237\u540d|\u90ae\u7bb1|\u624b\u673a\u53f7\u7801|\u7528\u6237ID",
+                        "type": "string",
+                        "default": ""
+                    },
+                    {
+                        "name": "password",
+                        "in": "query",
+                        "description": "\u5bc6\u7801",
+                        "type": "string",
+                        "default": ""
+                    },
+                    {
+                        "name": "device_id",
+                        "in": "query",
+                        "description": "\u8bbe\u5907",
+                        "type": "string",
+                        "default": "c6c34af361e26e3967531ff8b851d674d7f79b72"
+                    },
+                    {
+                        "name": "device_info",
+                        "in": "query",
+                        "description": "\u8bbe\u5907\u4fe1\u606f",
+                        "type": "string",
+                        "default": "{\"os\":10000}"
+                    },
+                    {
+                        "name": "push_token",
+                        "in": "query",
+                        "description": "\u8bbe\u5907\u4fe1\u606f",
+                        "type": "string",
+                        "default": "43c23864b7dc121381cf7d71b556a03128258ae5af73d3f184e3ec5f503a628f"
+                    },
+                    {
+                        "name": "client_type",
+                        "in": "query",
+                        "description": "\u5ba2\u6237\u7aef\u7c7b\u578b",
+                        "type": "string",
+                        "default": "20100"
+                    },
+                    {
+                        "name": "sns_id",
+                        "in": "query",
+                        "description": "\u793e\u4ea4\u7f51\u7edcID",
+                        "type": "string",
+                        "default": "1714926623"
+                    },
+                    {
+                        "name": "union_id",
+                        "in": "query",
+                        "description": "\u5fae\u4fe1\u5f00\u653e\u5e73\u53f0 Union ID",
+                        "type": "string",
+                        "default": ""
+                    },
+                    {
+                        "name": "sns_type",
+                        "in": "query",
+                        "description": "\u793e\u4ea4\u7f51\u7edc\u7c7b\u578b",
+                        "type": "string",
+                        "default": "200"
+                    },
+                    {
+                        "name": "nickname",
+                        "in": "query",
+                        "description": "\u6635\u79f0",
+                        "type": "string",
+                        "default": "nickname"
+                    },
+                    {
+                        "name": "avatar",
+                        "in": "query",
+                        "description": "\u5934\u50cf",
+                        "type": "string",
+                        "default": "http://tp4.sinaimg.cn/1714926623/180/5653481386/1"
+                    },
+                    {
+                        "name": "fields",
+                        "in": "query",
+                        "description": "\u6307\u5b9a\u5b57\u6bb5(id,name)",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                }
+            }
+        },
+        "/auth/register": {
+            "get": {
+                "tags": [
+                    "\u7528\u6237\u6743\u9650"
+                ],
+                "summary": "\u6ce8\u518c",
+                "description": "\u6682\u65e0",
+                "operationId": "auth.register",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "user_id",
+                        "in": "query",
+                        "description": "\u7528\u6237ID",
+                        "type": "string",
+                        "default": "100000000000000000"
+                    },
+                    {
+                        "name": "loginame",
+                        "in": "query",
+                        "description": "\u7528\u6237\u540d|\u90ae\u7bb1|\u624b\u673a\u53f7\u7801|\u7528\u6237ID",
+                        "type": "string",
+                        "default": ""
+                    },
+                    {
+                        "name": "password",
+                        "in": "query",
+                        "description": "\u5bc6\u7801",
+                        "type": "string",
+                        "default": ""
+                    },
+                    {
+                        "name": "device_id",
+                        "in": "query",
+                        "description": "\u8bbe\u5907",
+                        "type": "string",
+                        "default": ""
+                    },
+                    {
+                        "name": "device_info",
+                        "in": "query",
+                        "description": "\u8bbe\u5907\u4fe1\u606f",
+                        "type": "string",
+                        "default": "{\"os\":10000}"
+                    },
+                    {
+                        "name": "push_token",
+                        "in": "query",
+                        "description": "\u8bbe\u5907\u4fe1\u606f",
+                        "type": "string",
+                        "default": ""
+                    },
+                    {
+                        "name": "client_type",
+                        "in": "query",
+                        "description": "\u5ba2\u6237\u7aef\u7c7b\u578b",
+                        "type": "string",
+                        "default": "20100"
+                    },
+                    {
+                        "name": "sns_id",
+                        "in": "query",
+                        "description": "\u793e\u4ea4\u7f51\u7edcID",
+                        "type": "string",
+                        "default": "1714926623"
+                    },
+                    {
+                        "name": "union_id",
+                        "in": "query",
+                        "description": "\u5fae\u4fe1\u5f00\u653e\u5e73\u53f0 Union ID",
+                        "type": "string",
+                        "default": ""
+                    },
+                    {
+                        "name": "sns_type",
+                        "in": "query",
+                        "description": "\u793e\u4ea4\u7f51\u7edc\u7c7b\u578b",
+                        "type": "string",
+                        "default": "200"
+                    },
+                    {
+                        "name": "nickname",
+                        "in": "query",
+                        "description": "\u6635\u79f0",
+                        "type": "string",
+                        "default": "nickname"
+                    },
+                    {
+                        "name": "avatar",
+                        "in": "query",
+                        "description": "\u5934\u50cf",
+                        "type": "string",
+                        "default": "http://tp4.sinaimg.cn/1714926623/180/5653481386/1"
+                    },
+                    {
+                        "name": "fields",
+                        "in": "query",
+                        "description": "\u6307\u5b9a\u5b57\u6bb5(id,name)",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                }
+            }
+        },
+        "/auth/logout": {
+            "get": {
+                "tags": [
+                    "\u7528\u6237\u6743\u9650"
+                ],
+                "summary": "\u9000\u51fa",
+                "description": "\u6682\u65e0",
+                "operationId": "auth.logout",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "user_id",
+                        "in": "query",
+                        "description": "\u7528\u6237ID",
+                        "type": "string",
+                        "default": "100000000000000000"
+                    },
+                    {
+                        "name": "fields",
+                        "in": "query",
+                        "description": "\u6307\u5b9a\u5b57\u6bb5(id,name)",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                }
+            }
+        },
+        "/auth/bind": {
+            "get": {
+                "tags": [
+                    "\u7528\u6237\u6743\u9650"
+                ],
+                "summary": "\u7ed1\u5b9a",
+                "description": "\u6682\u65e0",
+                "operationId": "auth.bind",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "user_id",
+                        "in": "query",
+                        "description": "\u7528\u6237ID",
+                        "type": "string",
+                        "default": "100000000000000000"
+                    },
+                    {
+                        "name": "device_id",
+                        "in": "query",
+                        "description": "\u8bbe\u5907",
+                        "type": "string",
+                        "default": ""
+                    },
+                    {
+                        "name": "device_info",
+                        "in": "query",
+                        "description": "\u8bbe\u5907\u4fe1\u606f",
+                        "type": "string",
+                        "default": "{\"os\":10000}"
+                    },
+                    {
+                        "name": "client_type",
+                        "in": "query",
+                        "description": "\u5ba2\u6237\u7aef\u7c7b\u578b",
+                        "type": "string",
+                        "default": "20100"
+                    },
+                    {
+                        "name": "sns_id",
+                        "in": "query",
+                        "description": "\u793e\u4ea4\u7f51\u7edcID",
+                        "type": "string",
+                        "default": "1714926623"
+                    },
+                    {
+                        "name": "sns_type",
+                        "in": "query",
+                        "description": "\u793e\u4ea4\u7f51\u7edc\u7c7b\u578b",
+                        "type": "string",
+                        "default": "200"
+                    },
+                    {
+                        "name": "fields",
+                        "in": "query",
+                        "description": "\u6307\u5b9a\u5b57\u6bb5(id,name)",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                }
+            }
+        },
+        "/auth/unbind": {
+            "get": {
+                "tags": [
+                    "\u7528\u6237\u6743\u9650"
+                ],
+                "summary": "\u89e3\u7ed1",
+                "description": "\u6682\u65e0",
+                "operationId": "auth.unbind",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "user_id",
+                        "in": "query",
+                        "description": "\u7528\u6237ID",
+                        "type": "string",
+                        "default": "100000000000000000"
+                    },
+                    {
+                        "name": "device_id",
+                        "in": "query",
+                        "description": "\u8bbe\u5907",
+                        "type": "string",
+                        "default": ""
+                    },
+                    {
+                        "name": "device_info",
+                        "in": "query",
+                        "description": "\u8bbe\u5907\u4fe1\u606f",
+                        "type": "string",
+                        "default": "{\"os\":10000}"
+                    },
+                    {
+                        "name": "client_type",
+                        "in": "query",
+                        "description": "\u5ba2\u6237\u7aef\u7c7b\u578b",
+                        "type": "string",
+                        "default": "20100"
+                    },
+                    {
+                        "name": "sns_id",
+                        "in": "query",
+                        "description": "\u793e\u4ea4\u7f51\u7edcID",
+                        "type": "string",
+                        "default": "1714926623"
+                    },
+                    {
+                        "name": "sns_type",
+                        "in": "query",
+                        "description": "\u793e\u4ea4\u7f51\u7edc\u7c7b\u578b",
+                        "type": "string",
+                        "default": "200"
+                    },
+                    {
+                        "name": "fields",
+                        "in": "query",
+                        "description": "\u6307\u5b9a\u5b57\u6bb5(id,name)",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                }
+            }
+        },
+        "/auth/token": {
+            "get": {
+                "tags": [
+                    "\u7528\u6237\u6743\u9650"
+                ],
+                "summary": "\u83b7\u53d6Token",
+                "description": "\u6682\u65e0",
+                "operationId": "auth.token",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "user_id",
+                        "in": "query",
+                        "description": "\u7528\u6237ID",
+                        "type": "string",
+                        "default": "100000000000000000"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                }
+            }
+        },
+        "/auth/smscode": {
+            "get": {
+                "tags": [
+                    "\u7528\u6237\u6743\u9650"
+                ],
+                "summary": "\u83b7\u53d6\u77ed\u4fe1\u9a8c\u8bc1\u7801",
+                "description": "\u6682\u65e0",
+                "operationId": "auth.smscode",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "user_id",
+                        "in": "query",
+                        "description": "\u7528\u6237ID",
+                        "type": "string",
+                        "default": "100000000000000000"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                }
+            }
+        },
+        "/goods": {
+            "get": {
+                "tags": [
+                    "\u5546\u54c1"
+                ],
+                "summary": "\u5217\u8868",
+                "description": "\u6682\u65e0",
+                "operationId": "good.list",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "user_id",
+                        "in": "query",
+                        "description": "\u7528\u6237ID",
+                        "type": "integer",
+                        "default": "100000000000000000"
+                    },
+                    {
+                        "name": "offset",
+                        "in": "query",
+                        "description": "\u8d77\u59cb\u4f4d\u7f6e",
+                        "type": "integer",
+                        "default": "0"
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "\u83b7\u53d6\u6570\u91cf",
+                        "type": "integer",
+                        "default": "20"
+                    },
+                    {
+                        "name": "updown",
+                        "in": "query",
+                        "description": "\u65b9\u5411(1:\u6b63\u5e8f,-1:\u9006\u5e8f)",
+                        "type": "integer",
+                        "default": "-1"
+                    },
+                    {
+                        "name": "fields",
+                        "in": "query",
+                        "description": "\u6307\u5b9a\u5b57\u6bb5(id,name)",
+                        "type": "string"
+                    },
+                    {
+                        "name": "sort",
+                        "in": "query",
+                        "description": "\u6392\u5e8f\u5b57\u6bb5(name,-id)",
+                        "type": "string"
+                    },
+                    {
+                        "name": "q",
+                        "in": "query",
+                        "description": "\u67e5\u8be2\u5173\u952e\u8bcd",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                }
+            }
+        },
+        "/goods/{good_id}": {
+            "get": {
+                "tags": [
+                    "\u5546\u54c1"
+                ],
+                "summary": "\u5217\u8868",
+                "description": "\u6682\u65e0",
+                "operationId": "good.show",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "good_id",
+                        "in": "path",
+                        "description": "ID",
+                        "required": true,
+                        "type": "integer",
+                        "default": "100000000000000000"
+                    },
+                    {
+                        "name": "user_id",
+                        "in": "query",
+                        "description": "\u7528\u6237ID",
+                        "type": "integer",
+                        "default": "100000000000000000"
+                    },
+                    {
+                        "name": "fields",
+                        "in": "query",
+                        "description": "\u6307\u5b9a\u5b57\u6bb5(id,name)",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                }
+            }
+        },
+        "/goods/favors": {
+            "get": {
+                "tags": [
+                    "\u5546\u54c1"
+                ],
+                "summary": "\u6536\u85cf\u5217\u8868",
+                "description": "\u6682\u65e0",
+                "operationId": "good.favor.list",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "user_id",
+                        "in": "query",
+                        "description": "\u7528\u6237ID",
+                        "type": "integer",
+                        "default": "100000000000000000"
+                    },
+                    {
+                        "name": "offset",
+                        "in": "query",
+                        "description": "\u8d77\u59cb\u4f4d\u7f6e",
+                        "type": "integer",
+                        "default": "0"
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "\u83b7\u53d6\u6570\u91cf",
+                        "type": "integer",
+                        "default": "20"
+                    },
+                    {
+                        "name": "updown",
+                        "in": "query",
+                        "description": "\u65b9\u5411(1:\u6b63\u5e8f,-1:\u9006\u5e8f)",
+                        "type": "integer",
+                        "default": "-1"
+                    },
+                    {
+                        "name": "fields",
+                        "in": "query",
+                        "description": "\u6307\u5b9a\u5b57\u6bb5(id,name)",
+                        "type": "string"
+                    },
+                    {
+                        "name": "sort",
+                        "in": "query",
+                        "description": "\u6392\u5e8f\u5b57\u6bb5(name,-id)",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                }
+            }
+        },
+        "/goods/{good_id}/favors": {
+            "post": {
+                "tags": [
+                    "\u5546\u54c1"
+                ],
+                "summary": "\u6536\u85cf",
+                "description": "\u6682\u65e0",
+                "operationId": "good.favor.store",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "user_id",
+                        "in": "query",
+                        "description": "\u7528\u6237ID",
+                        "type": "integer",
+                        "default": "100000000000000000"
+                    },
+                    {
+                        "name": "good_id",
+                        "in": "path",
+                        "description": "ID",
+                        "required": true,
+                        "type": "integer",
+                        "default": "100000000000000000"
+                    },
+                    {
+                        "name": "fields",
+                        "in": "query",
+                        "description": "\u6307\u5b9a\u5b57\u6bb5(id,name)",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "\u5546\u54c1"
+                ],
+                "summary": "\u53d6\u6d88\u6536\u85cf",
+                "description": "\u6682\u65e0",
+                "operationId": "good.favor.destroy",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "user_id",
+                        "in": "query",
+                        "description": "\u7528\u6237ID",
+                        "type": "integer",
+                        "default": "100000000000000000"
+                    },
+                    {
+                        "name": "good_id",
+                        "in": "path",
+                        "description": "ID",
+                        "required": true,
+                        "type": "integer",
+                        "default": "100000000000000000"
+                    },
+                    {
+                        "name": "fields",
+                        "in": "query",
+                        "description": "\u6307\u5b9a\u5b57\u6bb5(id,name)",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                }
+            }
+        },
+        "/videos": {
+            "get": {
+                "tags": [
+                    "\u89c6\u9891"
+                ],
+                "summary": "\u5217\u8868",
+                "description": "\u6682\u65e0",
+                "operationId": "video.list",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "user_id",
+                        "in": "query",
+                        "description": "\u7528\u6237ID",
+                        "type": "integer",
+                        "default": "100000000000000000"
+                    },
+                    {
+                        "name": "offset",
+                        "in": "query",
+                        "description": "\u8d77\u59cb\u4f4d\u7f6e",
+                        "type": "integer",
+                        "default": "0"
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "\u83b7\u53d6\u6570\u91cf",
+                        "type": "integer",
+                        "default": "20"
+                    },
+                    {
+                        "name": "updown",
+                        "in": "query",
+                        "description": "\u65b9\u5411(1:\u6b63\u5e8f,-1:\u9006\u5e8f)",
+                        "type": "integer",
+                        "default": "-1"
+                    },
+                    {
+                        "name": "fields",
+                        "in": "query",
+                        "description": "\u6307\u5b9a\u5b57\u6bb5(id,name)",
+                        "type": "string"
+                    },
+                    {
+                        "name": "sort",
+                        "in": "query",
+                        "description": "\u6392\u5e8f\u5b57\u6bb5(name,-id)",
+                        "type": "string"
+                    },
+                    {
+                        "name": "q",
+                        "in": "query",
+                        "description": "\u67e5\u8be2\u5173\u952e\u8bcd",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                }
+            }
+        },
+        "/videos/{video_id}": {
+            "get": {
+                "tags": [
+                    "\u89c6\u9891"
+                ],
+                "summary": "\u5217\u8868",
+                "description": "\u6682\u65e0",
+                "operationId": "video.show",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "video_id",
+                        "in": "path",
+                        "description": "ID",
+                        "required": true,
+                        "type": "integer",
+                        "default": "100000000000000000"
+                    },
+                    {
+                        "name": "user_id",
+                        "in": "query",
+                        "description": "\u7528\u6237ID",
+                        "type": "integer",
+                        "default": "100000000000000000"
+                    },
+                    {
+                        "name": "fields",
+                        "in": "query",
+                        "description": "\u6307\u5b9a\u5b57\u6bb5(id,name)",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                }
+            }
+        },
+        "/videos/favors": {
+            "get": {
+                "tags": [
+                    "\u89c6\u9891"
+                ],
+                "summary": "\u6536\u85cf\u5217\u8868",
+                "description": "\u6682\u65e0",
+                "operationId": "video.favor.list",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "user_id",
+                        "in": "query",
+                        "description": "\u7528\u6237ID",
+                        "type": "integer",
+                        "default": "100000000000000000"
+                    },
+                    {
+                        "name": "offset",
+                        "in": "query",
+                        "description": "\u8d77\u59cb\u4f4d\u7f6e",
+                        "type": "integer",
+                        "default": "0"
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "\u83b7\u53d6\u6570\u91cf",
+                        "type": "integer",
+                        "default": "20"
+                    },
+                    {
+                        "name": "updown",
+                        "in": "query",
+                        "description": "\u65b9\u5411(1:\u6b63\u5e8f,-1:\u9006\u5e8f)",
+                        "type": "integer",
+                        "default": "-1"
+                    },
+                    {
+                        "name": "fields",
+                        "in": "query",
+                        "description": "\u6307\u5b9a\u5b57\u6bb5(id,name)",
+                        "type": "string"
+                    },
+                    {
+                        "name": "sort",
+                        "in": "query",
+                        "description": "\u6392\u5e8f\u5b57\u6bb5(name,-id)",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                }
+            }
+        },
+        "/videos/{video_id}/favors": {
+            "post": {
+                "tags": [
+                    "\u89c6\u9891"
+                ],
+                "summary": "\u6536\u85cf",
+                "description": "\u6682\u65e0",
+                "operationId": "video.favor.store",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "user_id",
+                        "in": "query",
+                        "description": "\u7528\u6237ID",
+                        "type": "integer",
+                        "default": "100000000000000000"
+                    },
+                    {
+                        "name": "video_id",
+                        "in": "path",
+                        "description": "ID",
+                        "required": true,
+                        "type": "integer",
+                        "default": "100000000000000000"
+                    },
+                    {
+                        "name": "fields",
+                        "in": "query",
+                        "description": "\u6307\u5b9a\u5b57\u6bb5(id,name)",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "\u89c6\u9891"
+                ],
+                "summary": "\u53d6\u6d88\u6536\u85cf",
+                "description": "\u6682\u65e0",
+                "operationId": "video.favor.destroy",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "user_id",
+                        "in": "query",
+                        "description": "\u7528\u6237ID",
+                        "type": "integer",
+                        "default": "100000000000000000"
+                    },
+                    {
+                        "name": "video_id",
+                        "in": "path",
+                        "description": "ID",
+                        "required": true,
+                        "type": "integer",
+                        "default": "100000000000000000"
+                    },
+                    {
+                        "name": "fields",
+                        "in": "query",
+                        "description": "\u6307\u5b9a\u5b57\u6bb5(id,name)",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {},
+    "externalDocs": {
+        "description": "\u5173\u4e8e\u6211\u4eec",
+        "url": "http://powerlaw.cn"
+    }
+}

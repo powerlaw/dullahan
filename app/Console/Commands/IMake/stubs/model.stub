@@ -1,0 +1,23 @@
+<?php namespace {{namespace}};
+
+use {{app}}\Models\Base\MysqlModel as Model;
+
+//use Illuminate\Database\Eloquent\Model;
+
+class {{model}} extends Model
+{
+    //protected $pivot = false;
+    //protected $useNatureKey = true;
+
+    protected $fillable = [
+        "{{resource}}_id",
+    ];
+
+    protected $displayAttributes = [
+        "id",
+        "{{resource}}_id",
+        "created_at",
+        "updated_at"
+    ];
+}
+

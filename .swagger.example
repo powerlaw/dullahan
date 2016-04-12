@@ -1,0 +1,120 @@
+/**
+ * @SWG\Swagger(
+ *     schemes={"http"},
+ *     host="xieyi.api.vqiho.com",
+ *     basePath="/v1",
+ *     consumes={"application/xml", "application/json"},
+ *     produces={"application/xml", "application/json"},
+ *     @SWG\Info(
+ *         version="1.0.0",
+ *         title="奇货API文档",
+ *         description="项目代号Tiny(小小)",
+ *         termsOfService="https://github.com/powrlaw",
+ *         @SWG\Contact(
+ *             name="xieyi",
+ *             url="http://github.com/xieyi64",
+ *             email="dev001@powerlaw.cn"
+ *         ),
+ *         @SWG\License(
+ *             name="Apache 2.0",
+ *             url="http://www.apache.org/licenses/LICENSE-2.0.html"
+ *         )
+ *     ),
+ *     @SWG\ExternalDocumentation(
+ *         description="关于我们",
+ *         url="http://powerlaw.cn"
+ *     )
+ * )
+ */
+
+ /**
+  * @SWG\Get(path="/videos",
+  *   tags={"video"},
+  *   summary="列表",
+  *   description="暂无",
+  *   operationId="video.index",
+  *   consumes={"application/xml", "application/json"},
+  *   produces={"application/xml", "application/json"},
+  *   @SWG\Parameter(
+  *     description="用户ID",
+  *     in="query",
+  *     name="user_id",
+  *     required=false,
+  *     type="integer",
+  *     format="int64",
+  *     default="100000000000000000",
+  *     @SWG\Items(type="string")
+  *   ),
+  *   @SWG\Response(response=200,description="成功",
+  *     @SWG\Schema(type="object",
+  *       @SWG\Items(ref="#/definitions/Video"),
+  *       additionalProperties={"type":"integer","format":"int32"}
+  *     ),
+  *     @SWG\Header(header="X-Rate-Limit",type="integer",format="int32",description="每小时允许调用次数"),
+  *     @SWG\Header(header="X-Expires-After",type="string",format="date-time",description="Token过期在UTC时间")
+  *   ),
+  *   @SWG\Response(response=400,description="无效"),
+  *   @SWG\Response(response=404,description="未找到"),
+  *   deprecated=false,
+  *   security={{"api_key": {}},{"video_auth": {"write:videos", "read:videos"}}}
+  * )
+  */
+
+/**
+ * @SWG\Response(response="100", message="Continue")
+ * @SWG\Response(response="101", message="Switching Protocols")
+ * @SWG\Response(response="102", message="Processing")
+ * @SWG\Response(response="200", message="OK")
+ * @SWG\Response(response="201", message="Created")
+ * @SWG\Response(response="202", message="Accepted")
+ * @SWG\Response(response="203", message="Non-Authoritative Information")
+ * @SWG\Response(response="204", message="No Content")
+ * @SWG\Response(response="205", message="Reset Content")
+ * @SWG\Response(response="206", message="Partial Content")
+ * @SWG\Response(response="207", message="Multi-Status")
+ * @SWG\Response(response="300", message="Multiple Choices")
+ * @SWG\Response(response="301", message="Moved Permanently")
+ * @SWG\Response(response="302", message="Move temporarily")
+ * @SWG\Response(response="303", message="See Other")
+ * @SWG\Response(response="304", message="Not Modified")
+ * @SWG\Response(response="305", message="Use Proxy")
+ * @SWG\Response(response="306", message="Switch Proxy")
+ * @SWG\Response(response="307", message="Temporary Redirect")
+ * @SWG\Response(response="400", message="Bad Request")
+ * @SWG\Response(response="401", message="Unauthorized")
+ * @SWG\Response(response="402", message="Payment Required")
+ * @SWG\Response(response="403", message="Forbidden")
+ * @SWG\Response(response="404", message="Not Found")
+ * @SWG\Response(response="405", message="Method Not Allowed")
+ * @SWG\Response(response="406", message="Not Acceptable")
+ * @SWG\Response(response="407", message="Proxy Authentication Required")
+ * @SWG\Response(response="408", message="Request Timeout")
+ * @SWG\Response(response="409", message="Conflict")
+ * @SWG\Response(response="410", message="Gone")
+ * @SWG\Response(response="411", message="Length Required")
+ * @SWG\Response(response="412", message="Precondition Failed")
+ * @SWG\Response(response="413", message="Request Entity Too Large")
+ * @SWG\Response(response="414", message="Request-URI Too Long")
+ * @SWG\Response(response="415", message="Unsupported Media Type")
+ * @SWG\Response(response="416", message="Requested Range Not Satisfiable")
+ * @SWG\Response(response="417", message="Expectation Failed")
+ * @SWG\Response(response="421", message="There are too many connections from your internet address")
+ * @SWG\Response(response="422", message="Unprocessable Entity")
+ * @SWG\Response(response="423", message="Locked")
+ * @SWG\Response(response="424", message="Failed Dependency")
+ * @SWG\Response(response="425", message="Unordered Collection")
+ * @SWG\Response(response="426", message="Upgrade Required")
+ * @SWG\Response(response="449", message="Retry With")
+ * @SWG\Response(response="500", message="Internal Server Error")
+ * @SWG\Response(response="501", message="Not Implemented")
+ * @SWG\Response(response="502", message="Bad Gateway")
+ * @SWG\Response(response="503", message="Service Unavailable")
+ * @SWG\Response(response="504", message="Gateway Timeout")
+ * @SWG\Response(response="505", message="HTTP Version Not Supported")
+ * @SWG\Response(response="506", message="Variant Also Negotiates")
+ * @SWG\Response(response="507", message="Insufficient Storage")
+ * @SWG\Response(response="509", message="Bandwidth Limit Exceeded")
+ * @SWG\Response(response="510", message="Not Extended")
+ * @SWG\Response(response="600", message="Unparseable Response Headers")
+ *
+ */

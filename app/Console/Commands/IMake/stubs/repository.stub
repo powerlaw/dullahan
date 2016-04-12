@@ -1,0 +1,75 @@
+<?php namespace {{namespace}};
+
+use {{app}}\Models\{{model}};
+use DB;
+use ERR;
+use Header;
+
+class {{class}} extends BaseRepository {
+
+    public function __construct(
+        {{model}} $model
+        )
+    {
+        $this->model = $model;
+    }
+	public function lists($repodata)
+	{
+	    $limitop = $repodata['updown']==1 ? '>' : '<';
+        $order = $repodata['updown']==1 ? 'asc' : 'desc';
+
+        $select = $this->model->getSelect($repodata['fields']);
+        $query = $this->model->select($select);
+
+        if ($repodata['updown']!=-1 || $repodata['offset']!=0){
+            $query = $query->where('{{resource}}_id',$limitop,$repodata['offset']);
+        }
+        $query = $query->orderBy('id',$order);
+        if(!empty($repodata['sort'])) $query = $query->orderByRaw($repodata['sort']);
+        $items =  $query->paginate($repodata['limit']);
+
+        $data = $items->toArray();
+        return ERR::R(ERR::D($data['data']),Header::page($items));
+
+        //$select = $this->model->getSelect($repodata['fields']);
+        //$query = $this->model->select($select);
+
+        //if(!empty($repodata['sort'])) $query = $query->orderByRaw($repodata['sort']);
+        //$items =  $query->get();
+
+        //$data = $items->toArray();
+        //return ERR::R(ERR::D($data));
+	}
+
+	public function show($repodata)
+	{
+        $select = $this->model->getSelect($repodata['fields']);
+        $query = $this->model->select($select);
+        $query = $query->where('{{resource}}_id',$repodata['{{resource}}_id']);
+        $item = $query->first();
+
+        $data = empty($item) ? (object)null : $item->toArray();
+        return ERR::R(ERR::D($data));
+	}
+
+	public function create($repodata)
+	{
+	}
+
+	public function store($repodata)
+	{
+	}
+
+	public function edit($repodata)
+	{
+	}
+
+	public function update($repodata)
+	{
+	}
+
+	public function destroy($repodata)
+	{
+	}
+
+}
