@@ -41,7 +41,7 @@ class VideoController extends Controller {
         $q = $request->input('q');
         $repodata = compact('user_id','offset','limit','updown','fields','sort','q');
         $responseData = $this->repo->lists($repodata);
-//		dd($responseData);die;
+//		var_dump($responseData);die;
         return response()->json($responseData,200,[],JSON_UNESCAPED_UNICODE);
 	}
 

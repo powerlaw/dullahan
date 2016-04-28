@@ -7,7 +7,7 @@
     "host": "ip",
     "headers": {
         "Accept": "application/xml,application/json",
-        "Host": "127.0.0.1",
+        "Host": "localhost",
         "X-API-Version": "1.0.0"
     },
     "parameters": [],

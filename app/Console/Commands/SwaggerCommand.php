@@ -95,7 +95,9 @@ class SwaggerCommand extends Command
         $obj['basePath'] = $output['basePath'];
 //        $obj['rootPath'] = $rootUrl;
         $obj['headers'][Header::ACCEPT] = implode(',',$output['produces']);
-        $obj['headers']['Host'] = $obj[$obj['host']];
+        if ($obj['host'] == 'ip') {
+            $obj['headers']['Host'] = $obj['domain'];
+        }
         $obj['headers'][Header::API_VERSION] = $output['info']['version'];
 
         $apis = [];

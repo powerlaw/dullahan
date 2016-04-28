@@ -30,7 +30,7 @@ Route::get('/', function () {
 /**
  * @SWG\Swagger(
  *     schemes={"http"},
- *     host="xieyi.api.vqiho.com",
+ *     host="api.vqiho.com",
  *     basePath="/v1",
  *     consumes={"application/xml", "application/json"},
  *     produces={"application/xml", "application/json"},

@@ -7,7 +7,6 @@
     "host": "domain",
     "headers": {
         "Accept": "application/xml,application/json",
-        "Host": "xieyi.api.vqiho.com",
         "X-API-Version": "1.0.0"
     },
     "parameters": [],
